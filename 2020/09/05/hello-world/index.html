@@ -5,17 +5,17 @@
   
 
   
-  <title>Hello World | Lrh&#39;s Pages</title>
+  <title>arm-none-eabi-gcc 问题综述 | Lrh&#39;s Pages</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="undefined reference to &#96;__errno’nano.specs缺少了很多东西 1-lg  ...  -specs&#x3D;rdimon.specs  -specs&#x3D;nosys.specs  莫名其妙进入 Infinite_Loop (位于startup_xxx.s) 其实是进入了未定义的中断函数调试的时候调用堆栈会显示从WWDG_IRQHandler等产生">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
+<meta property="og:title" content="arm-none-eabi-gcc 问题综述">
 <meta property="og:url" content="http://jasonlrh.github.io/2020/09/05/hello-world/index.html">
 <meta property="og:site_name" content="Lrh&#39;s Pages">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="undefined reference to &#96;__errno’nano.specs缺少了很多东西 1-lg  ...  -specs&#x3D;rdimon.specs  -specs&#x3D;nosys.specs  莫名其妙进入 Infinite_Loop (位于startup_xxx.s) 其实是进入了未定义的中断函数调试的时候调用堆栈会显示从WWDG_IRQHandler等产生">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-05T06:22:52.406Z">
-<meta property="article:modified_time" content="2020-09-05T06:22:52.406Z">
+<meta property="article:modified_time" content="2020-09-05T06:52:24.340Z">
 <meta property="article:author" content="JasonLrh">
 <meta name="twitter:card" content="summary">
   
@@ -80,7 +80,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      arm-none-eabi-gcc 问题综述
     </h1>
   
 
@@ -88,24 +88,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="undefined-reference-to-errno’"><a href="#undefined-reference-to-errno’" class="headerlink" title="undefined reference to `__errno’"></a>undefined reference to `__errno’</h2><p>nano.specs缺少了很多东西</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-lg  ...  -specs&#x3D;rdimon.specs  -specs&#x3D;nosys.specs</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h2 id="莫名其妙进入-Infinite-Loop-位于startup-xxx-s"><a href="#莫名其妙进入-Infinite-Loop-位于startup-xxx-s" class="headerlink" title="莫名其妙进入 Infinite_Loop (位于startup_xxx.s)"></a>莫名其妙进入 Infinite_Loop (位于startup_xxx.s)</h2><blockquote>
+<p>其实是进入了未定义的中断函数<br>调试的时候调用堆栈会显示从WWDG_IRQHandler等产生  </p>
+<blockquote>
+<p>需要在xxx_it.c/.h中添加中断函数，并建立回调</p>
+</blockquote>
+</blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jasonlrh.github.io/2020/09/05/hello-world/" data-id="ckepak8nh0000v6ubhlyfhcvi" class="article-share-link">Share</a>
+      <a data-url="http://jasonlrh.github.io/2020/09/05/hello-world/" data-id="ckepb8fe10000kzubhntd6w45" class="article-share-link">Share</a>
       
       
     </footer>
@@ -144,7 +140,7 @@
       <ul>
         
           <li>
-            <a href="/2020/09/05/hello-world/">Hello World</a>
+            <a href="/2020/09/05/hello-world/">arm-none-eabi-gcc 问题综述</a>
           </li>
         
       </ul>
