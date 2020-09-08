@@ -5,13 +5,17 @@
   
 
   
-  <title>Lrh&#39;s Pages</title>
+  <title>C++ Class | Lrh&#39;s Pages</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Lrh&#39;s Pages">
-<meta property="og:url" content="http://jasonlrh.github.io/index.html">
+  <meta name="description" content="前言：class(类)是C++相对C特有的、处理面向对象思想的字段。不过俺觉得，C99往后的struct基本上来说可以替代大部分的class操作，为啥要整个class出来呢？   结果看到operator的时候豁然开朗——噫，高级。  这个东西真的很神奇 基本类  123456789101112131415class box&amp;#123;public:    void box();">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ Class">
+<meta property="og:url" content="http://jasonlrh.github.io/2020/09/05/class/index.html">
 <meta property="og:site_name" content="Lrh&#39;s Pages">
+<meta property="og:description" content="前言：class(类)是C++相对C特有的、处理面向对象思想的字段。不过俺觉得，C99往后的struct基本上来说可以替代大部分的class操作，为啥要整个class出来呢？   结果看到operator的时候豁然开朗——噫，高级。  这个东西真的很神奇 基本类  123456789101112131415class box&amp;#123;public:    void box();">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-05T06:49:09.392Z">
+<meta property="article:modified_time" content="2020-09-08T15:00:39.513Z">
 <meta property="article:author" content="JasonLrh">
 <meta name="twitter:card" content="summary">
   
@@ -62,9 +66,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-class" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-class" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/09/05/class/" class="article-date">
   <time datetime="2020-09-05T06:49:09.392Z" itemprop="datePublished">2020-09-05</time>
@@ -77,8 +79,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/05/class/">C++ Class</a>
+    <h1 class="article-title" itemprop="name">
+      C++ Class
     </h1>
   
 
@@ -112,56 +114,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/09/05/hello-world/" class="article-date">
-  <time datetime="2020-09-05T06:22:52.406Z" itemprop="datePublished">2020-09-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/05/hello-world/">arm-none-eabi-gcc 问题综述</a>
-    </h1>
+    <a href="/2020/09/05/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">arm-none-eabi-gcc 问题综述</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="undefined-reference-to-errno’"><a href="#undefined-reference-to-errno’" class="headerlink" title="undefined reference to `__errno’"></a>undefined reference to `__errno’</h2><p>nano.specs缺少了很多东西</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-lg  ...  -specs&#x3D;rdimon.specs  -specs&#x3D;nosys.specs</span><br></pre></td></tr></table></figure>
-
-<h2 id="莫名其妙进入-Infinite-Loop-位于startup-xxx-s"><a href="#莫名其妙进入-Infinite-Loop-位于startup-xxx-s" class="headerlink" title="莫名其妙进入 Infinite_Loop (位于startup_xxx.s)"></a>莫名其妙进入 Infinite_Loop (位于startup_xxx.s)</h2><blockquote>
-<p>其实是进入了未定义的中断函数<br>调试的时候调用堆栈会显示从WWDG_IRQHandler等产生  </p>
-<blockquote>
-<p>需要在xxx_it.c/.h中添加中断函数，并建立回调</p>
-</blockquote>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jasonlrh.github.io/2020/09/05/hello-world/" data-id="ckepbjs9r0000quub269r8yg8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-
 
 </section>
         
