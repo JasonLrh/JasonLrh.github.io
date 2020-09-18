@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"jasonlrh.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="undefined reference to &#96;__errno’nano.specs缺少了很多东西 1-lg  ...  -specs&#x3D;rdimon.specs  -specs&#x3D;nosys.specs  莫名其妙进入 Infinite_Loop (位于startup_xxx.s) 其实是进入了未定义的中断函数调试的时候调用堆栈会显示从WWDG_IRQHandler等产生">
+  <meta name="description" content="#include &lt;opencv2&#x2F;opencv.hpp&gt; #include &lt;opencv2&#x2F;highgui.hpp&gt; #include &lt;opencv2&#x2F;video.hpp&gt; #include &lt;opencv2&#x2F;core.hpp&gt; #include &lt;opencv2&#x2F;imgproc.hpp&gt; #include &lt;opencv2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="arm-none-eabi-gcc 问题综述">
-<meta property="og:url" content="http://jasonlrh.github.io/2020/09/05/hello-world/index.html">
+<meta property="og:title" content="C++ opencv">
+<meta property="og:url" content="http://jasonlrh.github.io/2020/09/05/notes/C|C++/opencv/index.html">
 <meta property="og:site_name" content="随记">
-<meta property="og:description" content="undefined reference to &#96;__errno’nano.specs缺少了很多东西 1-lg  ...  -specs&#x3D;rdimon.specs  -specs&#x3D;nosys.specs  莫名其妙进入 Infinite_Loop (位于startup_xxx.s) 其实是进入了未定义的中断函数调试的时候调用堆栈会显示从WWDG_IRQHandler等产生">
+<meta property="og:description" content="#include &lt;opencv2&#x2F;opencv.hpp&gt; #include &lt;opencv2&#x2F;highgui.hpp&gt; #include &lt;opencv2&#x2F;video.hpp&gt; #include &lt;opencv2&#x2F;core.hpp&gt; #include &lt;opencv2&#x2F;imgproc.hpp&gt; #include &lt;opencv2">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-05T06:22:52.406Z">
-<meta property="article:modified_time" content="2020-09-05T06:52:24.340Z">
+<meta property="article:published_time" content="2020-09-05T06:49:09.393Z">
+<meta property="article:modified_time" content="2020-09-18T01:11:34.065Z">
 <meta property="article:author" content="JasonLrh">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://jasonlrh.github.io/2020/09/05/hello-world/">
+<link rel="canonical" href="http://jasonlrh.github.io/2020/09/05/notes/C|C++/opencv/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>arm-none-eabi-gcc 问题综述 | 随记</title>
+  <title>C++ opencv | 随记</title>
   
 
 
@@ -152,7 +152,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://jasonlrh.github.io/2020/09/05/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://jasonlrh.github.io/2020/09/05/notes/C|C++/opencv/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -165,7 +165,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          arm-none-eabi-gcc 问题综述
+          C++ opencv
         </h1>
 
         <div class="post-meta">
@@ -174,10 +174,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-09-05 14:22:52 / 修改时间：14:52:24" itemprop="dateCreated datePublished" datetime="2020-09-05T14:22:52+08:00">2020-09-05</time>
+              <time title="创建时间：2020-09-05 14:49:09" itemprop="dateCreated datePublished" datetime="2020-09-05T14:49:09+08:00">2020-09-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-18 09:11:34" itemprop="dateModified" datetime="2020-09-18T09:11:34+08:00">2020-09-18</time>
+              </span>
 
           
 
@@ -190,15 +196,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="undefined-reference-to-errno’"><a href="#undefined-reference-to-errno’" class="headerlink" title="undefined reference to `__errno’"></a>undefined reference to `__errno’</h2><p>nano.specs缺少了很多东西</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-lg  ...  -specs&#x3D;rdimon.specs  -specs&#x3D;nosys.specs</span><br></pre></td></tr></table></figure>
-
-<h2 id="莫名其妙进入-Infinite-Loop-位于startup-xxx-s"><a href="#莫名其妙进入-Infinite-Loop-位于startup-xxx-s" class="headerlink" title="莫名其妙进入 Infinite_Loop (位于startup_xxx.s)"></a>莫名其妙进入 Infinite_Loop (位于startup_xxx.s)</h2><blockquote>
-<p>其实是进入了未定义的中断函数<br>调试的时候调用堆栈会显示从WWDG_IRQHandler等产生  </p>
+        <blockquote>
+<p>#include &lt;opencv2/opencv.hpp&gt;<br />
+#include &lt;opencv2/highgui.hpp&gt;<br />
+#include &lt;opencv2/video.hpp&gt;<br />
+#include &lt;opencv2/core.hpp&gt;<br />
+#include &lt;opencv2/imgproc.hpp&gt;<br />
+#include &lt;opencv2/imgcodecs.hpp&gt;<br />
+…</p>
+</blockquote>
 <blockquote>
-<p>需要在xxx_it.c/.h中添加中断函数，并建立回调</p>
+<p>using namespace cv;</p>
 </blockquote>
+<h2 id="gui"><a class="markdownIt-Anchor" href="#gui"></a> GUI</h2>
+<p>cv::<code>namedWindow</code> <code>(&quot;window name&quot;,WINDOW_AUTOSIZE)</code>;<br />
+cv::<code>imshow</code> <code>(&quot;window name&quot;,src)</code>;</p>
+<h2 id="数据类"><a class="markdownIt-Anchor" href="#数据类"></a> 数据类</h2>
+<p>cv::<code>Mat</code></p>
+<blockquote>
+<p><code>Mat</code> src = <code>imread</code> <code>(&quot;filePath&quot;,IMREAD_COLOR)</code>;<br />
+<code>imwrite</code> <code>(&quot;filePath&quot;,src)</code>;</p>
 </blockquote>
+<h2 id="时间度量"><a class="markdownIt-Anchor" href="#时间度量"></a> 时间度量</h2>
+<blockquote>
+<p><code>double</code> t = (<code>double</code>)<code>getTickCount</code>();<br />
+…<br />
+t = (<code>getTickCount</code>()-t)/<code>getTickFrequency</code>();</p>
+</blockquote>
+<p>(t ,单位:秒)</p>
 
     </div>
 
@@ -213,10 +238,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/09/05/notes/C%7CC++/class/" rel="next" title="C++ Class">
-      C++ Class <i class="fa fa-chevron-right"></i>
+    <a href="/2020/09/05/notes/ARM/none-gcc/" rel="prev" title="arm-none-eabi-gcc">
+      <i class="fa fa-chevron-left"></i> arm-none-eabi-gcc
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/09/05/notes/Linux/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="next" title="正则表达式">
+      正则表达式 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -276,7 +304,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined-reference-to-errno%E2%80%99"><span class="nav-number">1.</span> <span class="nav-text">undefined reference to &#96;__errno’</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%AB%E5%90%8D%E5%85%B6%E5%A6%99%E8%BF%9B%E5%85%A5-Infinite-Loop-%E4%BD%8D%E4%BA%8Estartup-xxx-s"><span class="nav-number">2.</span> <span class="nav-text">莫名其妙进入 Infinite_Loop (位于startup_xxx.s)</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#gui"><span class="nav-number">1.</span> <span class="nav-text"> GUI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text"> 数据类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%BA%A6%E9%87%8F"><span class="nav-number">3.</span> <span class="nav-text"> 时间度量</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
